@@ -1,23 +1,29 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>VM 연결 테스트</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}">
-</head>
-<body>
-<main class="card">
-    <div class="status"><span></span> SERVER ONLINE</div>
-    <h1>VM 연결 성공!</h1>
-    <p>Spring Boot와 Thymeleaf 애플리케이션이 정상 실행 중입니다.</p>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+  </head>
+  <body>
+    <main class="card">
+      <div class="status"><span></span> SERVER ONLINE</div>
+      <h1>VM 연결 성공! - 추가메세지</h1>
+      <p>Spring Boot와 Thymeleaf 애플리케이션이 정상 실행 중입니다.</p>
 
-    <dl>
-        <div><dt>호스트</dt><dd th:text="${hostname}">localhost</dd></div>
-        <div><dt>서버 시간</dt><dd th:text="${serverTime}">2026-01-01</dd></div>
-    </dl>
+      <dl>
+        <div>
+          <dt>호스트</dt>
+          <dd th:text="${hostname}">localhost</dd>
+        </div>
+        <div>
+          <dt>서버 시간</dt>
+          <dd th:text="${serverTime}">2026-01-01</dd>
+        </div>
+      </dl>
 
-    <a href="/health">Health API 확인</a>
-</main>
-</body>
+      <a href="/health">Health API 확인</a>
+    </main>
+  </body>
 </html>
