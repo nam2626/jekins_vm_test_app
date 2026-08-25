@@ -29,6 +29,18 @@ pipeline {
             sh '''
                 set -eu
 
+                echo "=== Jenkins SSH key fingerprint ==="
+                ssh-keygen -y -f "$SSH_KEY" | ssh-keygen -lf -
+
+                echo "=== SSH authentication test ==="
+                ssh -vv \
+                  -i "$SSH_KEY" \
+                  -o IdentitiesOnly=yes \
+                  -o BatchMode=yes \
+                  -o StrictHostKeyChecking=yes \
+                  "${SSH_USER}@${DEPLOY_HOST}" \
+                  'echo SSH_OK'
+
                 scp -i "$SSH_KEY" \
                   -o StrictHostKeyChecking=yes \
                   build/libs/app.jar \
