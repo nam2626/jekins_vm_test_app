@@ -25,7 +25,7 @@ public class HomeController {
     @ResponseBody
     public Map<String, String> health() {
         return Map.of(
-                "status", "UP",
+                "status", "UP!",
                 "hostname", hostname(),
                 "serverTime", currentTime());
     }
